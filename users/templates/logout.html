@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<br>
+<br>
+<br>
+<div class="content-section my-5 mb-5"  style="text-align:center">
+    <legend class="my-4 py-3"><h3>You just logged out</h3</legend>
+        <a href="{% url 'login' %}">Login In Again</a>
+    </div>
+
+{% endblock content %}

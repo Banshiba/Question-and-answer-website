@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<br>
+<br>
+<br>
+<div class="content-section my-5 mb-5"  style="text-align:center">
+    <legend class="my-4 py-3"><h3>Login</h3</legend>
+    <form action="" method="post">
+        {% csrf_token %} 
+        <fieldset class="form-group">
+           
+                <br>
+                <div class="container"style="font-size:22px;text-align:center">
+            {{ form.as_p }}
+                </div>
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-dark" type="submit" >Login</button>
+        </div>
+    </form>
+    <div class=" pt-3">
+        <small class="text-muted">Dont have an Account? <a href="{% url 'register' %}" class="ms-2 text-dark"> Sign Up</a></small>
+    </div>
+</div> 
+
+{% endblock content %}

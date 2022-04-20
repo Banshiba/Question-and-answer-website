@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h2 class="text-center mt-5 pt-5">Post your Answer</h2>
+<div class="container text-center mx-5 my-2 ">
+    <form action="" method="post">
+        {% csrf_token %} 
+{{form|crispy}}
+</div>
+<div class="text-center">
+<button class="btn btn-dark"type="submit">Post</button>
+</div>
+</form>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<hr>
+
+<div class="container ">
+    <br><br>
+    <h2>Questions</h2>
+
+{% for question in questions  %}
+<div class="card mx-5 my-5 bg-dark text-white rounded-pill">
+    
+    <div class="card-body">
+        <h2 class="card-title">{{question.title}}</h2>
+        <p class="pb-2 pt-3">By {{question.author}} on {{question.date}}</p>
+    </div>
+    </div>
+
+   
+{% endfor %}
+</div>
+{% endblock content %}

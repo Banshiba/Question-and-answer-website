@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+     <br><br><br>
+    <div class="card mx-5 my-5 bg-dark text-white">
+        
+        <div class="card-body text-white">
+            
+            <h2 class="card-title ms-5"  style="display:inline-block">{{object.title}}</h2>
+            <p class="card-title ms-5 text-right" style="display:inline-block;margin-left: 0px;margin-right: 0px;padding-left: 584px;">By {{object.author}} on {{object.date}}</p>
+            <hr style="size: 20px">
+            <p class="ms-auto" style="font-size:20px;margin-top: 10px">{{object.Content}}
+        </div>   
+    </div>
+    <h2 class="my-3 text-center"><strong>Answers</strong></h2>
+
+    {% if not questions.comment.all %}
+        <div class="container text-center">
+        <h3 class="mx-3">...No Answers yet... </h3> 
+        <button class="btn btn-dark ms-2 my-3 text-center"<a class="text-white"href="{% url 'qs-answers' questions.id  %}">Answer Question</a></button>
+        </div>
+    {% else %}
+    <div class="container text-center text-white text-decoration-none">
+    <button class="btn btn-dark "><a class="text-white text-decoration-none"href="{% url 'qs-answers' questions.id  %}">Answer Question</a></button>
+    </div>
+        {% for comment in questions.comment.all %}
+            {% comment %} <h3 style="font-weight: normal; font-size: 15px;">{{comment.content|safe}}</h3>
+            <h3 style="font-size: 10px;">Answered by: <i>{{comment.name}} - On: {{comment.date_created|date:"j F, Y"}}</i></h3>
+            <hr>   {% endcomment %}
+            <div class="card mx-5 my-5 bg-dark text-white">
+                <div class="card-body text-white">
+                    <p class="card-title ms-5 text-right" style="display:inline-block;margin-left: 0px;margin-right: 0px;padding-left: 584px;">By {{comment.question.author}} on {{comment.date_created}}</p>
+                    <hr style="size: 20px">
+                    <p class="ms-auto" style="font-size:20px;margin-top: 10px;">{{comment.content}}</p>
+                
+                </div>   
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% endblock content %}
